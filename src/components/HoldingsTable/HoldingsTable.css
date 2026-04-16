@@ -1,0 +1,294 @@
+/* ===== Holdings Section ===== */
+.holdings {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  animation: slideUp 0.5s ease 0.15s both;
+}
+
+.holdings__header {
+  padding: var(--spacing-lg) var(--spacing-lg) 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.holdings__title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.holdings__subtitle {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ===== Table Wrapper ===== */
+.holdings__table-wrapper {
+  overflow-x: auto;
+  padding: var(--spacing-md) 0 0;
+}
+
+.holdings__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 920px;
+}
+
+/* ===== Table Header ===== */
+.holdings__th {
+  padding: 10px var(--spacing-md);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--bg-table-header);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+.holdings__th--right {
+  text-align: right;
+}
+
+.holdings__th--check {
+  width: 48px;
+  padding-left: var(--spacing-lg);
+}
+
+.holdings__th-sub {
+  font-weight: 400;
+  color: var(--text-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.65rem;
+}
+
+/* ===== Table Rows ===== */
+.holdings__row {
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-light);
+  transition: background var(--transition-fast);
+}
+
+.holdings__row:hover {
+  background: var(--bg-table-row-hover);
+}
+
+.holdings__row--selected {
+  background: var(--bg-selected-row) !important;
+}
+
+.holdings__row--selected:hover {
+  background: #e0ecff !important;
+}
+
+.holdings__td {
+  padding: 12px var(--spacing-md);
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.holdings__td--right {
+  text-align: right;
+}
+
+.holdings__td--check {
+  padding-left: var(--spacing-lg);
+}
+
+/* ===== Asset Cell ===== */
+.holdings__asset {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.holdings__asset-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  background: #f3f4f6;
+  border: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.holdings__asset-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.holdings__asset-symbol {
+  font-weight: 600;
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+}
+
+.holdings__asset-name {
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+/* ===== Cell Stack (two rows in one cell) ===== */
+.holdings__cell-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.holdings__cell-primary {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.holdings__cell-secondary {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Gain Values ===== */
+.holdings__gain {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  font-size: var(--font-sm);
+}
+
+.holdings__gain--positive {
+  color: var(--text-green);
+}
+
+.holdings__gain--negative {
+  color: var(--text-red);
+}
+
+/* ===== Sell Amount ===== */
+.holdings__sell-amount {
+  font-weight: 500;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--transition-fast);
+}
+
+.holdings__sell-amount--active {
+  color: var(--text-blue);
+  font-weight: 600;
+  animation: scaleIn 0.2s ease;
+}
+
+/* ===== Checkbox ===== */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+}
+
+.checkbox__box {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid #cbd5e1;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.checkbox__icon {
+  width: 10px;
+  height: 10px;
+  color: white;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all var(--transition-fast);
+}
+
+.checkbox input:checked + .checkbox__box {
+  background: var(--text-blue);
+  border-color: var(--text-blue);
+}
+
+.checkbox input:checked + .checkbox__box .checkbox__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.checkbox input:indeterminate + .checkbox__box {
+  background: var(--text-blue);
+  border-color: var(--text-blue);
+}
+
+.checkbox input:indeterminate + .checkbox__box .checkbox__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.checkbox__box:hover {
+  border-color: var(--text-blue);
+  box-shadow: 0 0 0 3px rgba(0, 82, 254, 0.08);
+}
+
+/* ===== View All Link ===== */
+.holdings__view-all {
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.holdings__view-all-btn {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-blue);
+  background: none;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.holdings__view-all-btn:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .holdings__header {
+    padding: var(--spacing-md) var(--spacing-md) 0;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .holdings__th--check,
+  .holdings__td--check {
+    padding-left: var(--spacing-md);
+  }
+}
