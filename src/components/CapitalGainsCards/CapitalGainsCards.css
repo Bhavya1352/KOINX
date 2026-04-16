@@ -1,0 +1,211 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  animation: fadeIn 0.5s ease;
+}
+
+/* ===== Card Base ===== */
+.card {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Dark Card */
+.card--dark {
+  background: var(--bg-dark-card);
+  color: var(--text-white);
+}
+
+/* Blue Card */
+.card--blue {
+  background: var(--bg-blue-card);
+  color: var(--text-white);
+}
+
+/* ===== Card Header ===== */
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__icon--dark {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.card__icon--blue {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.card__title {
+  font-size: var(--font-base);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.card__title--dark {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.card__title--blue {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== Savings Banner ===== */
+.card__savings {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.95);
+  animation: scaleIn 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.card__savings-emoji {
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.card__savings strong {
+  color: #4ade80;
+  font-weight: 700;
+}
+
+/* ===== Card Table ===== */
+.card__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-md);
+}
+
+.card__table thead th {
+  font-size: var(--font-xs);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: right;
+  padding: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card__table thead th:first-child {
+  text-align: left;
+}
+
+.card__table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card__table tbody td {
+  padding: 10px 0;
+  font-size: var(--font-sm);
+}
+
+.card__label {
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 400;
+}
+
+.card__label--bold {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.card__value {
+  text-align: right;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.card__value--profit {
+  color: var(--text-light-green);
+}
+
+.card__value--loss {
+  color: #f87171;
+}
+
+.card__value--net {
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.card__row--highlight {
+  border-bottom: none !important;
+}
+
+.card__row--highlight td {
+  padding-top: 12px;
+}
+
+/* ===== Card Footer ===== */
+.card__footer {
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__footer--dark {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card__footer--blue {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.card__footer-label {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.card__footer-value {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: var(--spacing-md);
+  }
+
+  .card__footer-value {
+    font-size: var(--font-lg);
+  }
+}
