@@ -1,9 +1,3 @@
-/**
- * Format a number as Indian Rupee currency
- * @param {number} value - The number to format
- * @param {boolean} showSign - Whether to show +/- signs
- * @returns {string} Formatted currency string
- */
 export const formatCurrency = (value, showSign = false) => {
   const absValue = Math.abs(value);
   const formatted = absValue.toLocaleString("en-IN", {
@@ -17,13 +11,6 @@ export const formatCurrency = (value, showSign = false) => {
   return value < 0 ? `-₹${formatted}` : `₹${formatted}`;
 };
 
-/**
- * Format a number for display with appropriate decimal places
- * Very small numbers are formatted with more decimals
- * @param {number} value
- * @param {number} maxDecimals
- * @returns {string}
- */
 export const formatNumber = (value, maxDecimals = 8) => {
   if (value === 0) return "0";
   const absVal = Math.abs(value);
@@ -42,11 +29,6 @@ export const formatNumber = (value, maxDecimals = 8) => {
   });
 };
 
-/**
- * Format a price value with ₹ symbol
- * @param {number} value
- * @returns {string}
- */
 export const formatPrice = (value) => {
   if (value === 0) return "₹0.00";
   const absVal = Math.abs(value);

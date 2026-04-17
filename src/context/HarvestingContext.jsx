@@ -18,7 +18,7 @@ export const HarvestingProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch data on mount
+
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -40,7 +40,7 @@ export const HarvestingProvider = ({ children }) => {
     loadData();
   }, []);
 
-  // Toggle a single asset selection
+
   const toggleAsset = useCallback((index) => {
     setSelectedAssets((prev) => {
       const next = new Set(prev);
@@ -53,7 +53,7 @@ export const HarvestingProvider = ({ children }) => {
     });
   }, []);
 
-  // Toggle all assets
+
   const toggleAll = useCallback(() => {
     setSelectedAssets((prev) => {
       if (prev.size === holdings.length) {
@@ -63,7 +63,7 @@ export const HarvestingProvider = ({ children }) => {
     });
   }, [holdings]);
 
-  // Compute after-harvesting capital gains based on selections
+
   const afterHarvestingGains = useMemo(() => {
     if (!capitalGains) return null;
 
@@ -76,14 +76,14 @@ export const HarvestingProvider = ({ children }) => {
       const holding = holdings[index];
       if (!holding) return;
 
-      // Short-term capital gains
+
       if (holding.stcg.gain >= 0) {
         addedStcgProfits += holding.stcg.gain;
       } else {
         addedStcgLosses += Math.abs(holding.stcg.gain);
       }
 
-      // Long-term capital gains
+
       if (holding.ltcg.gain >= 0) {
         addedLtcgProfits += holding.ltcg.gain;
       } else {
@@ -103,7 +103,7 @@ export const HarvestingProvider = ({ children }) => {
     };
   }, [capitalGains, selectedAssets, holdings]);
 
-  // Calculate net capital gains
+
   const preHarvestingNet = useMemo(() => {
     if (!capitalGains) return { stcg: 0, ltcg: 0, total: 0 };
     const stcgNet = capitalGains.stcg.profits - capitalGains.stcg.losses;
@@ -120,7 +120,7 @@ export const HarvestingProvider = ({ children }) => {
     return { stcg: stcgNet, ltcg: ltcgNet, total: stcgNet + ltcgNet };
   }, [afterHarvestingGains]);
 
-  // Calculate savings
+
   const savings = useMemo(() => {
     const diff = preHarvestingNet.total - afterHarvestingNet.total;
     return diff > 0 ? diff : 0;

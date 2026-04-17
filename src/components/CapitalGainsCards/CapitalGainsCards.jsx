@@ -15,7 +15,6 @@ const CapitalGainsCards = () => {
 
   return (
     <div className="cards" id="capital-gains-cards">
-      {/* Pre-Harvesting Card */}
       <div className="card card--dark" id="pre-harvesting-card">
         <div className="card__header">
           <div className="card__icon card__icon--dark">
@@ -74,7 +73,6 @@ const CapitalGainsCards = () => {
         </div>
       </div>
 
-      {/* After Harvesting Card */}
       <div className="card card--blue" id="after-harvesting-card">
         <div className="card__header">
           <div className="card__icon card__icon--blue">

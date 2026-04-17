@@ -1,4 +1,3 @@
-// Holdings API mock data
 export const holdingsData = [
   {
     coin: "USDC",
@@ -273,7 +272,6 @@ export const holdingsData = [
   },
 ];
 
-// Capital Gains API mock data
 export const capitalGainsData = {
   capitalGains: {
     stcg: {
